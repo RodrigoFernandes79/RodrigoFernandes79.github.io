@@ -1,0 +1,10 @@
+<div class="container" style="width: 70%;margin:auto;">
+    <h1 style="text-align: center;">Observações da Ordem de Serviço</h1>
+    <mat-card class="mat-elevation-z8">
+        <p style="text-align: end;">Data de abertura: {{ os.dataAbertura }}</p>
+        <p>{{ os.observacoes }}</p>
+    </mat-card>
+    <button class="mat-elevation-z8" mat-raised-button color="warn" (click)="retornaLista()">
+        <mat-icon style="margin-right: 3px;">backspace</mat-icon> Retornar para Lista </button>
+
+</div>

@@ -1,0 +1,40 @@
+<div class="header" style="margin-bottom: 30px;">
+    <h1 style=" text-align: center;font-size:2rem;">Atualizando Técnico</h1>
+</div>
+
+<form class="form  was-validated" #courseForm="ngForm" style="width: 50%; margin: auto;">
+
+    <mat-form-field class="full-width mat-elevation-z8 " style="width: 100%;margin-bottom: 30px; " appearance="fill ">
+        <mat-label for="id">
+            <h3>ID : {{tecnico.id}}</h3>
+        </mat-label>
+        <input matInput readonly name="id">
+
+    </mat-form-field>
+
+    <mat-form-field class="full-width mat-elevation-z8 " style="width: 100%;margin-bottom: 30px; " appearance="fill ">
+        <mat-label for="nome">Nome</mat-label>
+        <input matInput placeholder="Ex. Mario Silva " [ngClass]="{'is-valid': livroNome.valid}" #livroNome="ngModel" id="nome" [(ngModel)]="tecnico.nome" required name="nome">
+        <mat-error class="invalid-feedback alert alert-danger" role="alert" style="font-weight:bold">
+            Campo NOME deve ser preenchido!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width mat-elevation-z8 " style="width: 100%;margin-bottom: 30px; " appearance="fill ">
+        <mat-label for="cpf">CPF</mat-label>
+        <input matInput placeholder="Ex. 000.000.000-00 " [ngClass]="{'is-valid': livroCpf.valid}" #livroCpf="ngModel" id="cpf" [(ngModel)]="tecnico.cpf" required name="cpf" minlength="11" maxlength="14">
+        <mat-error class="invalid-feedback alert alert-danger" role="alert" style="font-weight:bold">
+            Campo CPF deve ter 11 e 14 caracteres!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width mat-elevation-z8 " style="width: 100%;margin-bottom: 30px; " appearance="fill ">
+        <mat-label for="telefone">Telefone</mat-label>
+        <input matInput placeholder="Ex. (xx)xxxxx-xxxx " [ngClass]="{'is-valid': livroTelefone.valid}" #livroTelefone="ngModel" id="telefone" [(ngModel)]="tecnico.telefone" required name="telefone" minlength="11" maxlength="14">
+        <mat-error class="invalid-feedback alert alert-danger" role="alert" style="font-weight:bold">
+            Campo TELEFONE deve ter entre 11 e 14 caracteres!
+        </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="alterarTecnicoPorId()" style="margin-right: 10px;" type="submit" [disabled]="!courseForm.valid">
+        <mat-icon style="margin-right: 3px;" >create</mat-icon>Atualizar </button>
+    <button mat-raised-button color="warn" (click)="retornaLista()">
+        <mat-icon style="margin-right: 3px;">backspace</mat-icon> Retornar para Lista </button>
+</form>

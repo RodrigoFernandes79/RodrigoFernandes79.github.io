@@ -1,0 +1,39 @@
+<mat-drawer-container class="container-fluid" style="height: 83%;width: 100%;">
+    <mat-drawer #drawer class="sidenav" mode="side">
+        <mat-list role="list">
+            <a routerLink="/" class="nav-link active" aria-current="page">
+                <mat-list-item role="listitem" style=" background-color: blue; border-radius: 5px;border:solid none;">
+
+                    <mat-icon style="margin-right: 5px;">home</mat-icon>Home</mat-list-item>
+            </a>
+
+            <a routerLink="tecnicos" class="nav-link active" aria-current="page">
+                <mat-list-item role="listitem ">
+                    <mat-icon style="margin-right: 5px;">work</mat-icon>Técnicos</mat-list-item>
+            </a>
+
+            <a routerLink="clientes" class="nav-link active" aria-current="page">
+                <mat-list-item role="listitem ">
+                    <mat-icon style="margin-right: 5px;">person_pin</mat-icon>Clientes</mat-list-item>
+            </a>
+
+            <a mat-list-item [matMenuTriggerFor]="menu">
+                <mat-menu #menu="matMenu">
+                    <a routerLink="os" mat-menu-item>Abertas ou em Andamento</a>
+                    <a routerLink="os/closed" mat-menu-item>Encerradas</a>
+                </mat-menu>
+                <mat-icon style="margin-right: 5px;">build</mat-icon>Ordem de Serviço
+            </a>
+
+        </mat-list>
+    </mat-drawer>
+
+    <div class="sidenav-content">
+        <button type="button" mat-button (click)="drawer.toggle()">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+
+    </div>
+    <router-outlet></router-outlet>
+</mat-drawer-container>
